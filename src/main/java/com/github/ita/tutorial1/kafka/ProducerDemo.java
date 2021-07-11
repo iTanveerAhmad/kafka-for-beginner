@@ -4,7 +4,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
@@ -22,11 +21,11 @@ public class ProducerDemo {
 
 
         // create producer
-        Producer<String, String> producer = new KafkaProducer<String, String>(properties);
+        Producer<String, String> producer = new KafkaProducer<>(properties);
 
         // create record
         ProducerRecord<String, String> record
-                = new ProducerRecord<String, String>("first_topic","hello world");
+                = new ProducerRecord<>("first_topic","hello world");
 
         // send data - asynchronous
         producer.send(record);
