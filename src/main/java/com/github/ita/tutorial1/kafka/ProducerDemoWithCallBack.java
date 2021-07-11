@@ -27,24 +27,19 @@ public class ProducerDemoWithCallBack {
 
             // create record
             ProducerRecord<String, String> record
-                    = new ProducerRecord<>("first_topic", "hello world"+Integer.toString(i));
+                    = new ProducerRecord<>("first_topic", "hello world"+i);
 
             // send data - asynchronous
-            producer.send(record, new Callback() {
-                @Override
-                public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                    // execute everytime a record successfully sent or exception is thrown
-                    if (e == null) {
-                        //the exception is thrown when a record is sent
-                        logger.info("Received new metadata. \n" +
-                                "Topic:" + recordMetadata.topic() + "\n " +
-                                "Partition:" + recordMetadata.partition() + "\n" +
-                                "Offset:" + recordMetadata.offset() + "\n" +
-                                "TimeStamp:" + recordMetadata.timestamp()
-                        );
-                    } else {
-                        logger.error("Error while producing", e);
-                    }
+            producer.send(record, (recordMetadata, e) -> {
+                if(e == null){
+                    logger.info("Received new metadata. \n" +
+                            "Topic:" + recordMetadata.topic() + "\n " +
+                            "Partition:" + recordMetadata.partition() + "\n" +
+                            "Offset:" + recordMetadata.offset() + "\n" +
+                            "TimeStamp:" + recordMetadata.timestamp()
+                    );
+                }else{
+                    logger.error("Error while producing", e);
                 }
             });
         }
