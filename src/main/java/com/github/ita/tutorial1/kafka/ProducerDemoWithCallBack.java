@@ -45,7 +45,6 @@ public class ProducerDemoWithCallBack {
                     } else {
                         logger.error("Error while producing", e);
                     }
-
                 }
             });
         }
