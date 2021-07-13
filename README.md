@@ -1,4 +1,4 @@
 # kafka-for-beginners
-Using Java 8
-Maven Project
 Basic understanding of Producer & Consumer.
+Using Maven with Java 8.
+
