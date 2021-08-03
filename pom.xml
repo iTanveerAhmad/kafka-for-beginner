@@ -33,6 +33,5 @@
             <artifactId>hbc-core</artifactId> <!-- hbc-twitter4j  -->
             <version>2.2.0</version> <!-- or whatever the latest version  -->
         </dependency>
-
     </dependencies>
 </project>
