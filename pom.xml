@@ -27,7 +27,12 @@
             <version>1.7.31</version>
 <!--            <scope>test</scope>-->
         </dependency>
-
+        <!-- tweeter dependency -->
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>hbc-core</artifactId> <!-- hbc-twitter4j  -->
+            <version>2.2.0</version> <!-- or whatever the latest version  -->
+        </dependency>
 
     </dependencies>
 </project>
